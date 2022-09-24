@@ -23,10 +23,10 @@ const mongoose = require ('mongoose');
 const path = require('path');
 
 //import routes
-const userRoutes = require('./routes/stuff');
-const userRoutes = require('./routes/sauce');
+const stuffRoutes = require('./routes/stuff');
+const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
-const postRoutes = require('./routes/post');
+//const postRoutes = require('./routes/post');
 
 
 const app = express();
@@ -64,7 +64,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/stuff',stuffRoutes);
 app.use('/api/sauce', sauceRoutes);
 app.use('/api/auth', userRoutes); // This gives us the prefix of 3000 api for user, 
-app.use('/api/post', postRoutes);
+//app.use('/api/post', postRoutes);
 
 
   

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "spunki",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -24,10 +24,5 @@
     "controllers",
     "routes",
     "models"
-  ],
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "Chapter-07"
-  }
+  ]
 }
