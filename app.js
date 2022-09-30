@@ -24,6 +24,7 @@ const path = require('path');
 
 //Database connection 
 const { Sequelize } = require('sequelize');
+//const db = new Sequelize('mysql12:localhost:3000/user');
 
 //import routes
 const stuffRoutes = require('./routes/stuff');
@@ -49,6 +50,10 @@ mongoose.connect('mongodb+srv://Curious:PPAQlL0yhbtV37vC@cluster0.ywfmh.mongodb.
   console.log('Unable to connect to MongoDB Atlas!');
   console.error(error);
 });
+
+//testing
+app.get('/', (req, res) => res.send('Index')); 
+
 
 //MIDDLEWARE  allows all requests from all origins to access the api
 app.use((req, res, next) => {
