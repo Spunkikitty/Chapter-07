@@ -21,6 +21,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require ('mongoose');
 const path = require('path');
+
+//Database connection 
 const { Sequelize } = require('sequelize');
 
 //import routes
