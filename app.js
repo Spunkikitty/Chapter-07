@@ -21,11 +21,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require ('mongoose');
 const path = require('path');
+const { Sequelize } = require('sequelize');
 
 //import routes
 const stuffRoutes = require('./routes/stuff');
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
+//
 //const postRoutes = require('./routes/post');
 
 
