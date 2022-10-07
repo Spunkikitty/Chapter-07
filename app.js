@@ -19,25 +19,66 @@ process.on('unhandledRejection', (reason, promise) => {
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require ('mongoose');
-const path = require('path');
-
-//Database connection 
+const path = require('path'); 
 const { Sequelize } = require('sequelize');
-//const db = new Sequelize('mysql12:localhost:3000/user');
+
+
+// get the client
+const mysql = require('mysql2');
+// create the connection to database
+var connection;
+function connectDb() {
+  connection  = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: '---',
+    password: '----'
+  });
+  connection.on('error', connectDb()); // probably worth adding timeout / throttle / etc
+}
+
+  
+
+
+/*try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+};*\
+
+
+
+
+
+// just incase server closes connection or times out use pool below will be commented out for backup use
+/*const pool = mysql.createPool({
+  host: 'localhost',
+  user: '--',
+  database: '---',
+  password: '----'
+});
+
+// ... later
+pool.query('select 1 + 1', (err, rows) => { /* */;
+
+
+
 
 //import routes
-const stuffRoutes = require('./routes/stuff');
-const sauceRoutes = require('./routes/sauce');
+//const stuffRoutes = require('./routes/stuff');
+//const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
-//
-//const postRoutes = require('./routes/post');
+
+const postRoutes = require('./routes/post');
 
 
 const app = express();
 
+
+
 //Connect the API to the MONGODB cluster
-mongoose.connect('mongodb+srv://Curious:PPAQlL0yhbtV37vC@cluster0.ywfmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+/*mongoose.connect('mongodb+srv://Curious:PPAQlL0yhbtV37vC@cluster0.ywfmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true } 
 )
 
@@ -49,7 +90,7 @@ mongoose.connect('mongodb+srv://Curious:PPAQlL0yhbtV37vC@cluster0.ywfmh.mongodb.
 .catch((error) => {
   console.log('Unable to connect to MongoDB Atlas!');
   console.error(error);
-});
+});*/
 
 //testing
 app.get('/', (req, res) => res.send('Index')); 
@@ -70,8 +111,8 @@ app.use(bodyParser.json());
 //serving static resource images 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 //using routes, setting the endpoint
-app.use('/api/stuff',stuffRoutes);
-app.use('/api/sauce', sauceRoutes);
+//app.use('/api/stuff',stuffRoutes);
+//app.use('/api/sauce', sauceRoutes);
 app.use('/api/auth', userRoutes); // This gives us the prefix of 3000 api for user, 
 //app.use('/api/post', postRoutes);
 
