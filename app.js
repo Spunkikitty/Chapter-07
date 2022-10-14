@@ -24,7 +24,7 @@ const { Sequelize } = require('sequelize');
 
 
 // get the client
-const mysql = require('mysql2');
+const mysql = require('mysql');
 // create the connection to database
 var connection;
 function connectDb() {

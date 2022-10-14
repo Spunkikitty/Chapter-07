@@ -25,5 +25,8 @@
     "controllers",
     "routes",
     "models"
-  ]
+  ],
+  "devDependencies": {
+    "sequelize-cli": "^6.5.1"
+  }
 }
