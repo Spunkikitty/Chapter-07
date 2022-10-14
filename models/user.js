@@ -1,11 +1,11 @@
-const mongoose = require('mongoose'); 
-const uniqueValidator = require('mongoose-unique-validator');
+const path = require('path'); 
+const { Sequelize } = require('sequelize');
 // convert to sequelize
-const userSchema = mongoose.Schema({
+const userSchema = Sequelize.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
 
 userSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = Sequelize.model('User', userSchema);
