@@ -2,7 +2,7 @@ const bcrypt =require('bcrypt');
 const jwt =require('jsonwebtoken');
 const User = require('../models/user');
 const { Sequelize } = require('sequelize');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 
     exports.signup = (req, res, next) => {

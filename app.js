@@ -1,5 +1,4 @@
-//MongoDB Connection:mongodb+srv://Curious:<password>@cluster0.ywfmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-//MongoPass: PPAQlL0yhbtV37vC
+
 
 
 //keeps nodemon from crashing//
@@ -20,47 +19,10 @@ process.on('unhandledRejection', (reason, promise) => {
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); 
-const { Sequelize } = require('sequelize');
-
-
-// get the client
-const mysql = require('mysql');
-// create the connection to database
-var connection;
-function connectDb() {
-  connection  = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: '---',
-    password: '----'
-  });
-  connection.on('error', connectDb()); // probably worth adding timeout / throttle / etc
-}
-
-  
-
-
-/*try {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-};*\
 
 
 
 
-
-// just incase server closes connection or times out use pool below will be commented out for backup use
-/*const pool = mysql.createPool({
-  host: 'localhost',
-  user: '--',
-  database: '---',
-  password: '----'
-});
-
-// ... later
-pool.query('select 1 + 1', (err, rows) => { /* */;
 
 
 
@@ -76,21 +38,6 @@ const postRoutes = require('./routes/post');
 const app = express();
 
 
-
-//Connect the API to the MONGODB cluster
-/*mongoose.connect('mongodb+srv://Curious:PPAQlL0yhbtV37vC@cluster0.ywfmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
-{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true } 
-)
-
-.then(() => {
-    console.log('Successfully connected to MongoDB Atlas!');
-
-
-})
-.catch((error) => {
-  console.log('Unable to connect to MongoDB Atlas!');
-  console.error(error);
-});*/
 
 //testing
 app.get('/', (req, res) => res.send('Index')); 
