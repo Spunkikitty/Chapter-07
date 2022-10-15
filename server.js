@@ -5,10 +5,11 @@ const Sequelize = require('sequelize');
 const mysql = require('mysql2');
 const sequelize = new Sequelize( 
   'Groupmaninia_network_db',
-  'Admin', 
-  'password', 
+  'GroupmaniniaDev', 
+  'Test1234!', 
   {
-    host:'-----', 
+    host:'localhost:3306', 
+
     dialect: 'mysql'
   }
 

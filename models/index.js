@@ -16,6 +16,11 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+if ('development' === env) {
+  sequelize.sync({ alter: true });
+  console.log('All tables are up to date.');
+}
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
