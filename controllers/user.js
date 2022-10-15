@@ -80,4 +80,4 @@ const { User } = require("../models");
         message: err.message
       })
     })
-  }
+  };
