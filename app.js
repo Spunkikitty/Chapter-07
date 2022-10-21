@@ -1,6 +1,4 @@
 
-
-
 //keeps nodemon from crashing//
 process.on('uncaughtException', (error, origin) => {
   console.log('----- Uncaught exception -----')
@@ -19,12 +17,6 @@ process.on('unhandledRejection', (reason, promise) => {
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); 
-
-
-
-
-
-
 
 
 //import routes

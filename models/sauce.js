@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 
 const sauceSchema = mongoose.Schema({
     userId: { type: String, required: true },
@@ -14,5 +14,5 @@ const sauceSchema = mongoose.Schema({
     userDisliked:{type:[String]},
   });
   
-  module.exports = mongoose.model('sauce', sauceSchema);
+  module.exports = mongoose.model('sauce', sauceSchema);*\
   
