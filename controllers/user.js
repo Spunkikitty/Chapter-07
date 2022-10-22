@@ -1,10 +1,8 @@
-
-const bcrypt =require('bcrypt');
-const jwt =require('jsonwebtoken');
-const  {User}  = require("../models");
- const  Sequelize  = require('sequelize');
- const mysql = require('mysql2');
-
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const Sequelize = require("sequelize");
+const mysql = require("mysql2");
+const { User } = require("../models");
 
 //      exports.signup = (req, res, next) => {
 //         bcrypt.hash(req.body.password, 10).then(
@@ -30,7 +28,6 @@ const  {User}  = require("../models");
 //         );
 //       };
 
-
 // exports.login = (req, res, next) => {
 //     User.findOne({ email: req.body.email }).then(
 //       (user) => {
@@ -47,7 +44,7 @@ const  {User}  = require("../models");
 //               });
 //             }
 //             const token = jwt.sign(
-//               { userId: user._id }, 
+//               { userId: user._id },
 //               'RANDOM_TOKEN_SECRET',
 //               { expiresIn: '24h'});
 //             res.status(200).json({
@@ -72,12 +69,14 @@ const  {User}  = require("../models");
 //     );
 //   }
 
-  exports.getAll = (req, res, next) => {
-    User.findAll().then(data => {
-      res.send(data)
-    }).catch(err => {
-      res.status(500).send({
-        message: err.message
-      })
+exports.getAll = (req, res, next) => {
+  User.findAll()
+    .then((data) => {
+      res.send(data);
     })
-  };
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};

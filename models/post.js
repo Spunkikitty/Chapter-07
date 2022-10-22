@@ -1,13 +1,19 @@
-// const mongoose = require('mongoose');
+// //in progress of fixing
 
-/*const postSchema = mongoose.Schema({
-    userId: { type: String, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    imageUrl: { type: String, required: true },
+// const {
+//     Model
+//   } = require('Sequelize');
+//   module.exports = (sequelize, DataTypes) => {
+//     class Post extends Model
+
+// const postSchema = mysql2.Schema({
+//     userId: { type: String, required: true },
+//     name: { type: String, required: true },
+//     description: { type: String, required: true },
+//     imageUrl: { type: String, required: true },
    
    
-   });
+//    });
   
-  module.exports = mongoose.model('post', postSchema); *\
+//   module.exports = mysql2.model('post', postSchema); 
   

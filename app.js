@@ -52,7 +52,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //using routes, setting the endpoint
 //app.use('/api/stuff',stuffRoutes);
 //app.use('/api/sauce', sauceRoutes);
-app.use('/api/auth', userRoutes); // This gives us the prefix of 3000 api for user, 
+app.use('/api/users', userRoutes); // This gives us the prefix of 3000 api for user, 
 //app.use('/api/post', postRoutes);
 
 

@@ -1,7 +1,8 @@
  // in controllers/stuff.js
+ const  Sequelize = require('sequelize');
+ const mysql = require('mysql2');
 
-
- const post = require('../models/post');
+const post = require('../models/post');
  const fs = require('fs');
  
 
