@@ -1,24 +1,25 @@
 const http = require('http');
 const app = require('./app');
-const Sequelize = require('sequelize');
+// const Sequelize = require('Sequelize');
 // get the client// 
-const mysql = require('mysql2');
-const sequelize = new Sequelize( 
-  'database_development_db',
-  'GroupmaniniaDev', 
-  'Test1234!', 
-  {
-    host:'localhost:3306', 
-    dialect: 'mysql2',
-  }
 
-); 
+//const mysql = require('mysql2');
+// const sequelize = new Sequelize( 
+  // 'database_development_db',
+  // 'GroupmaninaDev', 
+  // 'Test1234!', 
+  // {
+    // host:'localhost:3306', 
+    // dialect: 'mysql2',
+  // }
 
-sequelize.authenticate().then(() => {
-  console.log('Connection has been established successfully.');
-}).catch((error) => {
-  console.error('Unable to connect to the database: ', error);
-});
+// ); 
+
+//sequelize.authenticate().then(() => {
+  //console.log('Connection has been established successfully.');
+//}).catch((error) => {
+  //console.error('Unable to connect to the database: ', error);
+//});
 
 
 const normalizePort = val => {

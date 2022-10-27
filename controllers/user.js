@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Sequelize = require("sequelize");
+//const Sequelize = require("Sequelize");
 const mysql = require("mysql2");
-const { User } = require("../models");
+const {User} = require("../models");
 
-//      exports.signup = (req, res, next) => {
-//         bcrypt.hash(req.body.password, 10).then(
+//       exports.signup = (req, res, next) => {
+//          bcrypt.hash(req.body.password, 10).then(
 //           (hash) => {
 //             const user = new User({
 //               email: req.body.email,
@@ -21,53 +21,53 @@ const { User } = require("../models");
 //               (error) => {
 //                 res.status(500).json({
 //                   error: error
-//                 });
-//               }
-//             );
-//           }
+//                  });
+//                }
+//              );
+//            }
 //         );
-//       };
+//        };
 
-// exports.login = (req, res, next) => {
-//     User.findOne({ email: req.body.email }).then(
+//  exports.login = (req, res, next) => {
+//      User.findOne({ email: req.body.email }).then(
 //       (user) => {
-//         if (!user) {
-//           return res.status(401).json({
-//             error: new Error('User not found!')
-//           });
+//          if (!user) {
+//            return res.status(401).json({
+//              error: new Error('User not found!')
+//            });
 //         }
-//         bcrypt.compare(req.body.password, user.password).then(
-//           (valid) => {
-//             if (!valid) {
-//               return res.status(401).json({
-//                 error: new Error('Incorrect password!')
+//          bcrypt.compare(req.body.password, user.password).then(
+//            (valid) => {
+//              if (!valid) {
+//                return res.status(401).json({
+//                  error: new Error('Incorrect password!')
 //               });
-//             }
-//             const token = jwt.sign(
-//               { userId: user._id },
-//               'RANDOM_TOKEN_SECRET',
-//               { expiresIn: '24h'});
+//              }
+//              const token = jwt.sign(
+//                { userId: user._id },
+//                'RANDOM_TOKEN_SECRET',
+//                { expiresIn: '24h'});
 //             res.status(200).json({
-//               userId: user._id,
-//               token: token
-//             });
-//           }
-//         ).catch(
-//           (error) => {
-//             res.status(500).json({
-//               error: error
-//             });
-//           }
-//         );
-//       }
-//     ).catch(
-//       (error) => {
-//         res.status(500).json({
-//           error: error
-//         });
-//       }
-//     );
-//   }
+//                userId: user._id,
+//                token: token
+//              });
+//            }
+//          ).catch(
+//            (error) => {
+//              res.status(500).json({
+//                error: error
+//              });
+//            }
+//          );
+//        }
+//      ).catch(
+//        (error) => {
+//          res.status(500).json({
+//            error: error
+//          });
+//        }
+//      );
+//    }
 
 exports.getAll = (req, res, next) => {
   User.findAll()
@@ -80,3 +80,4 @@ exports.getAll = (req, res, next) => {
       });
     });
 };
+ 

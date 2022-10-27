@@ -1,5 +1,4 @@
-
-//keeps nodemon from crashing//
+ //keeps nodemon from crashing//
 process.on('uncaughtException', (error, origin) => {
   console.log('----- Uncaught exception -----')
   console.log(error)
@@ -14,6 +13,8 @@ process.on('unhandledRejection', (reason, promise) => {
   console.log(reason)
 })
 
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); 
@@ -23,7 +24,6 @@ const path = require('path');
 //const stuffRoutes = require('./routes/stuff');
 //const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
-
 const postRoutes = require('./routes/post');
 
 
@@ -52,8 +52,8 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //using routes, setting the endpoint
 //app.use('/api/stuff',stuffRoutes);
 //app.use('/api/sauce', sauceRoutes);
-app.use('/api/users', userRoutes); // This gives us the prefix of 3000 api for user, 
-//app.use('/api/post', postRoutes);
+app.use('/api/user', userRoutes); // This gives us the prefix of 3000 api for user, 
+app.use('/api/post', postRoutes);
 
 
   
