@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "devStart": "nodemon server.js",
+    "serve": "vue-cli-service serve --host localhost",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +31,7 @@
     "models"
   ],
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.1"
   }
 }
