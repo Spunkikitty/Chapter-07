@@ -1,18 +1,18 @@
-const { Sequelize } = require("sequelize");
-const { Sequelize, Model, DataTypes } = require("sequelize");
- const express = require('express');
- const router = express.Router();
+
+const express = require('express');
+const router = express.Router();
+const { Sequelize } = require('sequelize');
 
  const auth = require('../middleware/auth');
- const multer = require('../middleware/multer-config');
+const multer = require('../middleware/multer-config');
 
- const postCtrl = require('../controllers/post');
+ const postCtrl = require('../controller/post');
 
   router.post('/',  postCtrl.createPost);
   router.post('/',postCtrl.modifyPost);
   router.post('/',postCtrl.deletePost); 
  router.post('/',postCrtl.getAllPost); 
   router.post('/',postCrt.getOnePost); 
-  router.post('/:id/like', postCtrl.likePost);
+  router.post('/:id/readBy', postCtrl.readBy);
 
- module.exports = router;
+ module.exports.Sequelize = router;
