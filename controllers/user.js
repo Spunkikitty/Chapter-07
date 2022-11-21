@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-//const Sequelize = require("Sequelize");
+const Sequelize = require("Sequelize");
 const mysql = require("mysql2");
-const {User} = require("../models");
+const { User } = require("../models");
 
-//       exports.signup = (req, res, next) => {
-//          bcrypt.hash(req.body.password, 10).then(
+//      exports.signup = (req, res, next) => {
+//         bcrypt.hash(req.body.password, 10).then(
 //           (hash) => {
 //             const user = new User({
 //               email: req.body.email,
@@ -80,4 +80,3 @@ exports.getAll = (req, res, next) => {
       });
     });
 };
- 
