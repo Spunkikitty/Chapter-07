@@ -27,7 +27,7 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   //{ db: collection "development database" {lastName: " "}}
-  User.findOne({ email: req.body.email }), 
+  User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
         return res.status(401).json({
@@ -75,7 +75,7 @@ exports.getAll = (req, res, next) => {
     });
 };
 
-exports.deleteUser () = (req, res, next) => {
+exports.delete = (req, res, next) => {
   user.findOne({ _id: req.params.id }).then((user) => {
     const filename = user.imageUrl.split("/images/")[1];
     fs.unlink("images/" + filename, () => {
