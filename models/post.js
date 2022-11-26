@@ -18,14 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init(
     {
-      //Email: DataTypes.STRING,
-      //imageURL: DataTypes.STRING,
-     // userID: DataTypes.STRING,
-      //Subject: DataTypes.STRING,
-     // Post: DataTypes.STRING,
-     // Date: DataTypes.STRING,
-     Post: DataTypes.STRING,
-     userID: DataTypes.STRING,
+   
+     message: DataTypes.STRING,
+     userId: DataTypes.STRING,
      imageUrl:DataTypes.STRING,
       readBy: DataTypes.JSON
     },
@@ -38,23 +33,23 @@ module.exports = (sequelize, DataTypes) => {
   return Post;
 };
 
-const { Sequelize } = require("sequelize");
+//const { Sequelize } = require("sequelize");
 
- const PostSchema = Sequelize.DataTypes.Schema;
- title: {
-   type: String, required, true;
- }
- description: {
-   type: String, required, true;
- }
- imageUrl: {
-   type: String, required, true;
- }
- userId: {
-   type: String, required, true;
- }
+ //const PostSchema = Sequelize.DataTypes.Schema;
+//  title: {
+//    type: String, required, true;
+//  }
+//  description: {
+//    type: String, required, true;
+//  }
+//  imageUrl: {
+//    type: String, required, true;
+//  }
+//  userId: {
+//    type: String, required, true;
+//  }
  
- readBy: {
-   type: Number;
- }
-module.exports = Sequelize.model("Post", PostSchema);
+//  readBy: {
+//    type: Number;
+//  }
+//module.exports = Sequelize.model("Post", PostSchema);

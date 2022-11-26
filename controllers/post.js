@@ -1,12 +1,14 @@
-const Sequelize = require("sequelize");
+
 const post = require("../models/post");
 const fs = require("fs");
 const mysql = require("mysql2");
+const {Post} = require ("../models");
+
 
 exports.createPost = (req, res, next) => {
   req.body.post = JSON.parse(req.body.post);
   const url = req.protocol + "://" + req.get("host");
-  const post = new post({
+  const post = new Post({
     name: req.body.post.name,
     description: req.body.post.description,
     userId: req.body.post.userId,
@@ -99,7 +101,7 @@ exports.getAllPost = (req, res, next) => {
 };
 
 exports.postReadBy = (req, res, next) => {
-  post.findOne({ _id: req.params.id }).then((post) => {
+  Post.findOne({ _id: req.params.id }).then((post) => {
     if (req.body.readBy == user) {
       post.userreadBy.push(req.body.userId);
       post.readBy += req.body.readBy;
@@ -107,7 +109,7 @@ exports.postReadBy = (req, res, next) => {
       req.body.readBy === user &&
       post.userreadBy.includes(req.body.userId)
     ) {
-      post.userreadBy.remove(req.body.userId);
+      post.userReadBy.remove(req.body.userId);
       post.likes -= 1;
     } else if (req.body.like == -1) {
       post.userDisReadBy.push(req.body.userId);
@@ -120,7 +122,7 @@ exports.postReadBy = (req, res, next) => {
       post.disReadyBy -= 1;
     }
 
-    post
+    Post
       .save()
       .then(() => {
         res.status(200).json({
