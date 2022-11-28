@@ -75,9 +75,12 @@ exports.getAll = (req, res, next) => {
     });
 };
 
+//TODO: no images deleted when deleting user
+//TO DO: button on the profile page when deleting user
+
 exports.delete = (req, res, next) => {
   user.findOne({ _id: req.params.id }).then((user) => {
-    const filename = user.imageUrl.split("/images/")[1];
+     const filename = user.imageUrl.split("/images/")[1]; 
     fs.unlink("images/" + filename, () => {
       user.deleteOne({ _id: req.params.id })
         .then(() => {
