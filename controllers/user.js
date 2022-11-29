@@ -26,8 +26,7 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  //{ db: collection "development database" {lastName: " "}}
-  User.findOne({ email: req.body.email })
+  User.findOne({ where: { email: req.body.email } })
     .then((user) => {
       if (!user) {
         return res.status(401).json({
@@ -42,7 +41,7 @@ exports.login = (req, res, next) => {
               error: new Error("Incorrect password!"),
             });
           }
-          const token = jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+          const token = jwt.sign({ userId: user.id }, "RANDOM_TOKEN_SECRET", {
             expiresIn: "24h",
           });
           res.status(200).json({
@@ -80,9 +79,9 @@ exports.getAll = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
   user.findOne({ _id: req.params.id }).then((user) => {
-     const filename = user.imageUrl.split("/images/")[1]; 
     fs.unlink("images/" + filename, () => {
-      user.deleteOne({ _id: req.params.id })
+      user
+        .deleteOne({ _id: req.params.id })
         .then(() => {
           res.status(200).json({
             message: "Deleted!",
@@ -96,5 +95,3 @@ exports.delete = (req, res, next) => {
     });
   });
 };
-
-
